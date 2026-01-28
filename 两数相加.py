@@ -17,5 +17,27 @@ class Solution:
         l1.next = self.addTwoNumbers(l1.next, l2.next if l2 else None, s // 10)  # 进位
         return l1
 s=Solution()
-res = s.addTwoNumbers([2,4,3], [5,6,4])
+
+l1 = ListNode(2)
+print(f"l1 1:{l1.val},{l1.next}")
+l1.next = ListNode(4)
+print(f"l1 2:{l1.val},{l1.next}")
+l1.next.next = ListNode(3)
+print(f"l1 3:{l1.val},{l1.next}")
+while l1:
+    # print(f"l1:{l1.val},{l1.next}")
+    print(l1.val, end=" -> " if l1.next else "\n")
+    l1 = l1.next
+
+# 构建 l2: 5 -> 6 -> 4
+l2 = ListNode(5)
+l2.next = ListNode(6)
+l2.next.next = ListNode(4)
+
+res = s.addTwoNumbers(l1, l2)
 print(res)
+# 打印结果
+while res:
+    print(res.val, end=" -> " if res.next else "\n")
+    res = res.next
+# 输出: 7 -> 0 -> 8
